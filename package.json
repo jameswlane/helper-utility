@@ -17,7 +17,7 @@
     "babel-register": "^6.24.1",
     "chai": "^4.0.1",
     "chalk": "^2.0.0",
-    "coveralls": "^2.13.1",
+    "coveralls": "^3.0.0",
     "eslint": "^4.1.0",
     "eslint-config-airbnb": "^15.0.0",
     "eslint-plugin-immutable": "^1.0.0",
