@@ -19,7 +19,7 @@
     "chalk": "^2.0.0",
     "coveralls": "^3.0.0",
     "eslint": "^4.1.0",
-    "eslint-config-airbnb": "^15.0.0",
+    "eslint-config-airbnb": "^16.0.0",
     "eslint-plugin-immutable": "^1.0.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^6.0.0",
