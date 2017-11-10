@@ -1,7 +1,4 @@
-import {expect} from 'chai';
-import sinon from 'sinon';
-
-import fileToTest from '../../src/check-all-item'
+import { expect } from 'chai';
 
 describe('Check All Items', () => {
   it('should check all items', () => {
