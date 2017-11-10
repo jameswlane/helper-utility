@@ -1,6 +1,6 @@
 {
   "name": "helper-utility",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "helper",
   "main": "index.js",
   "scripts": {
