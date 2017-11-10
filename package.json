@@ -1,8 +1,19 @@
 {
   "name": "helper-utility",
   "version": "0.0.0-development",
-  "description": "helper",
+  "description": "helper utility",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jameswlane/helper-utility.git"
+  },
+  "keywords": [
+    "utility"
+  ],
+  "bugs": {
+    "url": "https://github.com/jameswlane/helper-utility/issues"
+  },
+  "homepage": "https://github.com/jameswlane/helper-utility#readme",
   "scripts": {
     "eslint": "eslint src test",
     "eslint:fix": "eslint --fix src test",
