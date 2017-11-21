@@ -42,7 +42,7 @@
     "eslint-plugin-immutable": "1.0.0",
     "eslint-plugin-import": "2.8.0",
     "eslint-plugin-jsx-a11y": "6.0.2",
-    "eslint-plugin-react": "7.5.0",
+    "eslint-plugin-react": "7.5.1",
     "jest": "21.2.1",
     "regenerator-runtime": "0.11.0",
     "semantic-release": "8.2.0",
