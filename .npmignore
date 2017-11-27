@@ -1,4 +1,6 @@
+coverage
 src
+test
 .nvmrc
 .travis.yml
 jest.config.js

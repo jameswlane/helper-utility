@@ -16,3 +16,10 @@ node_modules/
 
 # JetBrains settings
 .idea
+
+# MacOS
+.DS_Store
+
+# Opt In
+.opt-in
+.opt-out
