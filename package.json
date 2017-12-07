@@ -46,7 +46,7 @@
   "author": "James W. Lane",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "8.0.54",
+    "@types/node": "8.0.55",
     "all-contributors-cli": "4.10.0",
     "awesome-typescript-loader": "3.4.1",
     "commitizen": "2.9.6",
