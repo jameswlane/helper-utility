@@ -47,7 +47,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "8.0.58",
-    "all-contributors-cli": "4.10.0",
+    "all-contributors-cli": "4.10.1",
     "awesome-typescript-loader": "3.4.1",
     "commitizen": "2.9.6",
     "coveralls": "3.0.0",
