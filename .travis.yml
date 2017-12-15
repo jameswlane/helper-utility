@@ -19,10 +19,19 @@ after_script:
 - greenkeeper-lockfile-upload
 script:
 - yarn verify
+jobs:
+  include:
+    - stage: building
+      script: echo "Running TypeScript build ..."
+    - stage: npm release
+      node_js: "8"
+      script: echo "Deploying to npm ..."
+    - stage: coverage
+      node_js: "8"
+      script: echo "Sending to coveralls ..."
 after_success:
 - yarn ts:build
 - yarn semantic-release
-- if [ "$TRAVIS_NODE_VERSION" == "8" ]; then echo "This is version 8"; fi;
 - cat ./coverage/lcov.info | coveralls
 branches:
   except:
