@@ -61,7 +61,7 @@ This project follows the [all-contributors][all-contributors] specification. Con
 [code-climate-maintainability]: https://codeclimate.com/github/jameswlane/helper-utility/maintainability
 [code-climate-coverage-badge]: https://api.codeclimate.com/v1/badges/c8e0063204b28ecc5046/test_coverage
 [code-climate-coverage]: https://codeclimate.com/github/jameswlane/helper-utility/test_coverage
-[package-quality-badge]: http://npm.packagequality.com/badge/helper-utility.png
+[package-quality-badge]: http://npm.packagequality.com/shield/helper-utility.svg
 [package-quality]: http://packagequality.com/#?package=helper-utility
 [coverage-badge]: https://coveralls.io/repos/github/jameswlane/helper-utility/badge.svg?branch=master
 [coverage]: https://coveralls.io/github/jameswlane/helper-utility?branch=master
