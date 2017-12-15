@@ -28,19 +28,19 @@ jobs:
   include:
     - stage: NPM Vet
       node_js: "8"
-      script: echo "Vetting npm package versions..."
-      after_success:
-        - yarn ts:build
+      script:
+        - echo "Vetting npm package versions..."
+        - yarn verify:npmvet
     - stage: Node Security
       node_js: "8"
-      script: echo "Checking for known vulnerabilities in the project..."
-      after_success:
-        - yarn ts:build
+      script:
+        - echo echo "Checking for known vulnerabilities in the project..."
+        - yarn verify:nsp
     - stage: TSLint
       node_js: "8"
-      script: echo "Running TSLint..."
-      after_success:
-        - yarn ts:build
+      script:
+        - echo "Running TSLint..."
+        - yarn tslint
     - stage: Building
       node_js: "8"
       script: echo "Running TypeScript build..."
