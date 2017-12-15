@@ -1,42 +1,51 @@
 language: node_js
 node_js:
-- '9'
-- '8'
-- '7'
-- '6'
+  - '9'
+  - '8'
+  - '7'
+  - '6'
+os:
+  - linux
+  - osx
 before_install:
-- curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.3.2
-- export PATH="$HOME/.yarn/bin:$PATH"
-- yarn global add greenkeeper-lockfile@1
+  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.3.2
+  - export PATH="$HOME/.yarn/bin:$PATH"
+  - yarn global add greenkeeper-lockfile@1
 cache:
   yarn: true
   directories:
   - "~/.npm"
+notifications:
+  email: false
 before_script:
-- yarn global add npmvet david nsp depcheck types-checker
-- greenkeeper-lockfile-update
+  - yarn global add npmvet david nsp depcheck types-checker
+  - greenkeeper-lockfile-update
 after_script:
-- greenkeeper-lockfile-upload
+  - greenkeeper-lockfile-upload
 script:
-- yarn verify
+  - yarn verify
 jobs:
   include:
     - stage: building
+      node_js: "8"
       script: echo "Running TypeScript build ..."
+      after_success:
+        - yarn ts:build
     - stage: npm release
       node_js: "8"
       script: echo "Deploying to npm ..."
+      after_success:
+        - yarn semantic-release
     - stage: coverage
       node_js: "8"
       script: echo "Sending to coveralls ..."
-after_success:
-- yarn ts:build
-- yarn semantic-release
-- cat ./coverage/lcov.info | coveralls
+      after_success:
+        - cat ./coverage/lcov.info | coveralls
 branches:
   except:
-  - "/^v\\d+\\.\\d+\\.\\d+$/"
+    - "/^v\\d+\\.\\d+\\.\\d+$/"
 env:
   global:
-  - secure: lAjzBTuyfeV3sRmv6JWuRbaKcv7cWhWgseJDxjBztw10A3rWrxjcKXbe5kXVIkOXK690IDRAcjWFQARqmEKUmFvO/Y+d71bym6GeySsDkjQkVsWKVeuXzGmQKGBNH4mt/FqOtJqMAqM/bcm7/a/yIOAx7ezUIDqDzQXE509exqfTYf4rO/obZgAuIc5Si6gFqHcz0EZm2GW6BHt01hd0xJkHpJ0cnfxtA79BUOXavDmNKfvA7sRbZzt9V8kNxb2C4peiE+l6lhq9MtuuRUFlaw/vBE4NSx/JmLxXtXyyqteSj1vpUqegQEl81vaBQHUmTr0/cfUMm4/e2u84qztAyhOlFkHzU6VNouI8NmB+yy3gbYoWO1/MfIa8cyX/Pqz3kxAtphr/9uhOnRZUJJ6JswBtYf65Ed1cuvIQ+0zEYP7+Yad34We/u75zR0VuFDQWQbzrC92EA+AinUbwEtyK1js8Cf5z2pCUijtWnlVKwN+CjzF1wafjNGBGbLnBKgXw4mRIA9iQZ1jN4bQeAeYFjGIWB6hU0HjvJxDqdIcmNuuceL6qiJo8V4Yu3U/WFKEb8S5+GCx23VqpwSFDdnl36DLX6ZUNSJvu1/sC3B3UcnML04itRQPopeV3BE4wqGF4xVQwmWWugHxPp1FRmvSvlxWb+ae2IF+3zaSnONeLF64=
-  - secure: Z+FezOpI54fGoCdbANLM3hvageh+MW9le9Tz4WxtUVYGbbUl0E1p6/XyWVGVjBuRk2LypSVuUJn+RP1fCfOOyrC8gL9Ce0UXTf7rbsIZr7ud1rmlWkgTG8NNiJYdMFWeNflFMkpnH0tYZRouUvX64GJMcUKey4iteGS3VGggYE6NaaISVJX6ww/WVE55+VipvzNlcRsIEOuroH29HiaZmeAKBEZPbw/Li2+5+MDJ3d0CG8tsfGenrmAfJ6Vg1nnQBBEc7QKSRBCc91stnomOsLAqHNb9pKF5a1pSbDXUxRTKghhNUonxb/TVHv+M8Q2Skz8prGxUsGzM27zITFJrmfNBKc+OWMj+ss6l2N46qtbfxHV1/ZXNTbjqVIDUHGGTOesxxkTH7nBLtcFgnahsw+czRMhw3kkdBhhNvwDbJ/X3nmMHWsq/gShWNHIOtpDAkO+9+L/lPcrIGY+BQgaXU1lQId1VZJJScIdqU/pQScRuGzCMqITKDZMMZgRsEdbqcVPqhazVjVQzWRwHGTlGrAUT6/9uImpsKHHLMIT1oRdyd9XVNygq7/+/8vp3Kd4G7SjPOML+U24T6OJG4KeTyaUPtSUCRvbZZ7YPXi2l7xrBaDLlNmg+mrt5ocju0awjiiaS6d1B2RhZ4VnsmRYmpxa2ExIyqoR0LiTetO6/Co4=
+    - BUILD_LEADER_ID=10
+    - secure: lAjzBTuyfeV3sRmv6JWuRbaKcv7cWhWgseJDxjBztw10A3rWrxjcKXbe5kXVIkOXK690IDRAcjWFQARqmEKUmFvO/Y+d71bym6GeySsDkjQkVsWKVeuXzGmQKGBNH4mt/FqOtJqMAqM/bcm7/a/yIOAx7ezUIDqDzQXE509exqfTYf4rO/obZgAuIc5Si6gFqHcz0EZm2GW6BHt01hd0xJkHpJ0cnfxtA79BUOXavDmNKfvA7sRbZzt9V8kNxb2C4peiE+l6lhq9MtuuRUFlaw/vBE4NSx/JmLxXtXyyqteSj1vpUqegQEl81vaBQHUmTr0/cfUMm4/e2u84qztAyhOlFkHzU6VNouI8NmB+yy3gbYoWO1/MfIa8cyX/Pqz3kxAtphr/9uhOnRZUJJ6JswBtYf65Ed1cuvIQ+0zEYP7+Yad34We/u75zR0VuFDQWQbzrC92EA+AinUbwEtyK1js8Cf5z2pCUijtWnlVKwN+CjzF1wafjNGBGbLnBKgXw4mRIA9iQZ1jN4bQeAeYFjGIWB6hU0HjvJxDqdIcmNuuceL6qiJo8V4Yu3U/WFKEb8S5+GCx23VqpwSFDdnl36DLX6ZUNSJvu1/sC3B3UcnML04itRQPopeV3BE4wqGF4xVQwmWWugHxPp1FRmvSvlxWb+ae2IF+3zaSnONeLF64=
+    - secure: Z+FezOpI54fGoCdbANLM3hvageh+MW9le9Tz4WxtUVYGbbUl0E1p6/XyWVGVjBuRk2LypSVuUJn+RP1fCfOOyrC8gL9Ce0UXTf7rbsIZr7ud1rmlWkgTG8NNiJYdMFWeNflFMkpnH0tYZRouUvX64GJMcUKey4iteGS3VGggYE6NaaISVJX6ww/WVE55+VipvzNlcRsIEOuroH29HiaZmeAKBEZPbw/Li2+5+MDJ3d0CG8tsfGenrmAfJ6Vg1nnQBBEc7QKSRBCc91stnomOsLAqHNb9pKF5a1pSbDXUxRTKghhNUonxb/TVHv+M8Q2Skz8prGxUsGzM27zITFJrmfNBKc+OWMj+ss6l2N46qtbfxHV1/ZXNTbjqVIDUHGGTOesxxkTH7nBLtcFgnahsw+czRMhw3kkdBhhNvwDbJ/X3nmMHWsq/gShWNHIOtpDAkO+9+L/lPcrIGY+BQgaXU1lQId1VZJJScIdqU/pQScRuGzCMqITKDZMMZgRsEdbqcVPqhazVjVQzWRwHGTlGrAUT6/9uImpsKHHLMIT1oRdyd9XVNygq7/+/8vp3Kd4G7SjPOML+U24T6OJG4KeTyaUPtSUCRvbZZ7YPXi2l7xrBaDLlNmg+mrt5ocju0awjiiaS6d1B2RhZ4VnsmRYmpxa2ExIyqoR0LiTetO6/Co4=
