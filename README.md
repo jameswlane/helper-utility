@@ -25,6 +25,9 @@
 [![Star on GitHub][github-star-badge]][github-star]
 [![Tweet][twitter-badge]][twitter]
 
+[![Maintainability][code-climate-maintainability-badge]][code-climate-maintainability]
+[![Test Coverage][code-climate-coverage-badge]][code-climate-coverage]
+[![Package Quality][package-quality-badge]][package-quality]
 
 Data helper utility
 
@@ -54,6 +57,12 @@ This project follows the [all-contributors][all-contributors] specification. Con
 
 [build-badge]: https://travis-ci.org/jameswlane/helper-utility.svg?branch=master
 [build]: https://travis-ci.org/jameswlane/helper-utility
+[code-climate-maintainability-badge]: https://api.codeclimate.com/v1/badges/c8e0063204b28ecc5046/maintainability
+[code-climate-maintainability]: https://codeclimate.com/github/jameswlane/helper-utility/maintainability
+[code-climate-coverage-badge]: https://api.codeclimate.com/v1/badges/c8e0063204b28ecc5046/test_coverage
+[code-climate-coverage]: https://codeclimate.com/github/jameswlane/helper-utility/test_coverage
+[package-quality-badge]: http://npm.packagequality.com/badge/helper-utility.png
+[package-quality]: http://packagequality.com/#?package=helper-utility
 [coverage-badge]: https://coveralls.io/repos/github/jameswlane/helper-utility/badge.svg?branch=master
 [coverage]: https://coveralls.io/github/jameswlane/helper-utility?branch=master
 [david-dm-badge]: https://david-dm.org/jameswlane/helper-utility/status.svg
