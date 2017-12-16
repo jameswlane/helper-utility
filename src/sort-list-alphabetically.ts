@@ -1,5 +1,5 @@
 export function sortListAlphabetically(itemsGroup: any, sortAlphabetically: any) {
-  return itemsGroup.sort((a, b) => {
+  return itemsGroup.sort((a: any, b: any) => {
     const itemA = a.name.toLowerCase();
     const itemB = b.name.toLowerCase();
     if (itemA < itemB) {
