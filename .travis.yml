@@ -43,19 +43,25 @@ jobs:
         - yarn tslint
     - stage: Building
       node_js: "8"
-      script: echo "Running TypeScript build..."
+      script:
+        - echo "Running TypeScript build..."
+        - ls
       after_success:
         - yarn ts:build
-    - stage: NPM Release
-      node_js: "8"
-      script: echo "Deploying to npm..."
-      after_success:
-        - yarn semantic-release
     - stage: Code Coverage
       node_js: "8"
-      script: echo "Sending coverage report to coveralls..."
+      script:
+        - echo "Sending coverage report to coveralls..."
+        - ls
       after_success:
         - cat ./coverage/lcov.info | coveralls
+    - stage: NPM Release
+      node_js: "8"
+      script:
+      - echo "Deploying to npm..."
+      - ls
+      after_success:
+        - yarn semantic-release
 branches:
   except:
     - "/^v\\d+\\.\\d+\\.\\d+$/"
