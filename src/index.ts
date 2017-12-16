@@ -1,4 +1,5 @@
 export { checkAllItems } from './check-all-items';
+export { clone } from './clone';
 export { checkItemByItemNumber } from './check-item-by-item-number';
 export { checkItemsInGroup } from './check-items-in-group';
 export { filterList } from './filter-list';
