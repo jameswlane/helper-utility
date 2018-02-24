@@ -50,7 +50,7 @@
   "devDependencies": {
     "@types/node": "9.4.6",
     "all-contributors-cli": "4.10.1",
-    "awesome-typescript-loader": "3.4.1",
+    "awesome-typescript-loader": "3.5.0",
     "codecov": "3.0.0",
     "commitizen": "2.9.6",
     "coveralls": "3.0.0",
