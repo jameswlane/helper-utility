@@ -335,18 +335,17 @@ atob@^2.0.0:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.0.3.tgz#19c7a760473774468f20b2d2d03372ad7d4cbf5d"
 
-awesome-typescript-loader@3.4.1:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/awesome-typescript-loader/-/awesome-typescript-loader-3.4.1.tgz#22fa49800f0619ec18ab15383aef93b95378dea9"
+awesome-typescript-loader@3.5.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/awesome-typescript-loader/-/awesome-typescript-loader-3.5.0.tgz#4d4d10cba7a04ed433dfa0334250846fb11a1a5a"
   dependencies:
-    colors "^1.1.2"
+    chalk "^2.3.1"
     enhanced-resolve "3.3.0"
     loader-utils "^1.1.0"
     lodash "^4.17.4"
     micromatch "^3.0.3"
     mkdirp "^0.5.1"
-    object-assign "^4.1.1"
-    source-map-support "^0.4.15"
+    source-map-support "^0.5.3"
 
 aws-sign2@~0.6.0:
   version "0.6.0"
@@ -874,10 +873,6 @@ color-name@^1.1.1:
 colors@1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/colors/-/colors-1.0.3.tgz#0433f44d809680fdeb60ed260f1b0c262e82a40b"
-
-colors@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/colors/-/colors-1.1.2.tgz#168a4701756b6a7f51a12ce0c97bfa28c084ed63"
 
 colors@~0.6.0-1:
   version "0.6.2"
@@ -3772,7 +3767,7 @@ oauth-sign@~0.8.1, oauth-sign@~0.8.2:
   version "0.8.2"
   resolved "https://registry.yarnpkg.com/oauth-sign/-/oauth-sign-0.8.2.tgz#46a6ab7f0aead8deae9ec0565780b7d4efeb9d43"
 
-object-assign@^4.0.1, object-assign@^4.1.0, object-assign@^4.1.1:
+object-assign@^4.0.1, object-assign@^4.1.0:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
 
@@ -4640,6 +4635,12 @@ source-map-support@^0.4.15:
 source-map-support@^0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.0.tgz#2018a7ad2bdf8faf2691e5fddab26bed5a2bacab"
+  dependencies:
+    source-map "^0.6.0"
+
+source-map-support@^0.5.3:
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.3.tgz#2b3d5fff298cfa4d1afd7d4352d569e9a0158e76"
   dependencies:
     source-map "^0.6.0"
 
