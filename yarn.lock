@@ -364,9 +364,9 @@ atob@^2.0.0:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.0.3.tgz#19c7a760473774468f20b2d2d03372ad7d4cbf5d"
 
-awesome-typescript-loader@4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/awesome-typescript-loader/-/awesome-typescript-loader-4.0.0.tgz#486479ec2efb6069d158420e9851a5b515a24a15"
+awesome-typescript-loader@4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/awesome-typescript-loader/-/awesome-typescript-loader-4.0.1.tgz#bddae8183f06eb65184390d596e4342ca2089281"
   dependencies:
     chalk "^2.3.1"
     enhanced-resolve "3.3.0"
@@ -4313,9 +4313,9 @@ sax@^1.2.1:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
 
-semantic-release@15.0.2:
-  version "15.0.2"
-  resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-15.0.2.tgz#5eb52c9ca0aef5ee2e51b912226d91567e6d5856"
+semantic-release@15.0.3:
+  version "15.0.3"
+  resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-15.0.3.tgz#e057de778ad399212b66e860e761f7f54e1d14e0"
   dependencies:
     "@semantic-release/commit-analyzer" "^5.0.0"
     "@semantic-release/error" "^2.2.0"
