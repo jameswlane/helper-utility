@@ -50,7 +50,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "10.12.18",
-    "all-contributors-cli": "5.10.2",
+    "all-contributors-cli": "5.11.0",
     "awesome-typescript-loader": "5.2.1",
     "codecov": "3.1.0",
     "commitizen": "3.0.5",
