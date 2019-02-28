@@ -25,12 +25,10 @@ install_steps: &install_steps
           sudo npm install -g greenkeeper-lockfile@1
     - run:
         name: Install Dependencies
-        command: npm install
+        command: npm i
     - run:
         name: Updating Lockfiles
         command: |
-          greenkeeper-lockfile-update
-          greenkeeper-lockfile-upload
           greenkeeper-shrinkwrap-update
           greenkeeper-shrinkwrap-upload
     - save_cache:
@@ -40,8 +38,7 @@ install_steps: &install_steps
           - node_modules/
     - persist_to_workspace:
         root: ~/project
-        paths:
-          - helper-utility
+        paths: helper-utility
 
 test_steps: &test_steps
   steps:
@@ -50,7 +47,7 @@ test_steps: &test_steps
         key: node-modules-{{ .Branch }}-{{ checksum "package-lock.json" }}
     - run:
         name: Install Local Packages
-        command: npm install
+        command: npm i
     - run:
         name: Test Suite
         command: npm run test:ci
@@ -107,7 +104,6 @@ jobs:
       - image: circleci/node:10
     <<: *test_steps
 
-
   test-node-11:
     working_directory: ~/helper-utility
     docker:
@@ -148,8 +144,7 @@ jobs:
           command: npm run ts:build
       - persist_to_workspace:
           root: ~/project
-          paths:
-            - helper-utility
+          paths: helper-utility
 
   semantic-release:
     <<: *docker_defaults
@@ -170,12 +165,12 @@ workflows:
       - npmvet:
           requires:
             - install
-      - nsp:
+      - audit:
           requires:
             - npmvet
       - tslint:
           requires:
-            - nsp
+            - audit
       - test-node-6:
           requires:
             - tslint

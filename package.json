@@ -15,8 +15,6 @@
   },
   "homepage": "https://github.com/jameswlane/helper-utility#readme",
   "scripts": {
-    "audit": "npm audit",
-    "audit:fix": "npm audit fix",
     "clean": "rimraf lib coverage",
     "commit": "git-cz",
     "commitmsg": "opt --in commit-msg --exec \"validate-commit-msg\"",
@@ -35,11 +33,12 @@
     "ts:watch": "tsc -w",
     "tslint": "tslint --config tslint.json --project tsconfig.json \"src/**/*.ts\"",
     "tslint:fix": "tslint --config tslint.json --project tsconfig.json --fix \"src/**/*.ts\"",
-    "verify": "npm run verify:npmvet && npm run verify:david && npm run audit:fix && npm run verify:tscheck && npm run tslint && npm run test",
+    "verify": "npm run verify:npmvet && npm run verify:david && npm run verify:audit && npm run verify:tscheck && npm run tslint && npm run test",
     "verify:offline": "npm run verify:npmvet && npm run tslint && npm run test",
-    "verify:ci": "npm run verify:npmvet && npm run audit:fix && npm run tslint && npm run test:ci",
+    "verify:ci": "npm run verify:npmvet && npm run verify:audit && npm run tslint && npm run test:ci",
     "verify:check": "depcheck",
     "verify:david": "david",
+    "verify:audit": "npm audit fix",
     "verify:npmvet": "npmvet --renderer ci --strict",
     "verify:tscheck": "types-checker"
   },
