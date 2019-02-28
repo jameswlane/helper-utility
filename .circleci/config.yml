@@ -180,15 +180,15 @@ workflows:
       - test-node-10:
           requires:
             - tslint
-      - test-node-11:
-          requires:
-            - tslint
+#      - test-node-11:
+#          requires:
+#            - tslint
       - coverage:
           requires:
             - test-node-6
             - test-node-8
             - test-node-10
-            - test-node-11
+#            - test-node-11
       - build-typescript:
           requires:
             - coverage
