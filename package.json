@@ -37,10 +37,10 @@
     "verify:offline": "npm run verify:npmvet && npm run tslint && npm run test",
     "verify:ci": "npm run verify:npmvet && npm run verify:audit && npm run tslint && npm run test:ci",
     "verify:check": "depcheck",
-    "verify:david": "david",
+    "verify:david": "npx david",
     "verify:audit": "npm audit fix",
-    "verify:npmvet": "npmvet --renderer ci --strict",
-    "verify:tscheck": "types-checker"
+    "verify:npmvet": "npx npmvet --renderer ci --strict",
+    "verify:tscheck": "npx typesync"
   },
   "files": [
     "lib/"
@@ -49,23 +49,25 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "10.12.18",
-    "all-contributors-cli": "6.1.2",
+    "@types/rimraf": "2.0.2",
+    "@types/semantic-release": "15.13.0",
+    "all-contributors-cli": "6.6.1",
     "awesome-typescript-loader": "5.2.1",
-    "codecov": "3.2.0",
-    "commitizen": "3.0.7",
+    "codecov": "3.5.0",
+    "commitizen": "3.1.1",
     "coveralls": "3.0.3",
     "cz-conventional-changelog": "2.1.0",
     "jest": "24.8.0",
-    "lint-staged": "8.1.4",
+    "lint-staged": "8.1.7",
     "npmvet": "0.1.5",
     "opt-cli": "1.6.0",
     "rimraf": "2.6.3",
-    "semantic-release": "15.13.4",
-    "ts-jest": "24.0.0",
-    "tslint": "5.13.0",
+    "semantic-release": "15.13.12",
+    "ts-jest": "24.0.2",
+    "tslint": "5.16.0",
     "tslint-config-airbnb": "5.11.1",
     "types-checker": "0.0.9",
-    "typescript": "3.3.3333",
+    "typescript": "3.4.5",
     "validate-commit-msg": "2.14.0"
   },
   "david": {
