@@ -35,7 +35,7 @@ test_steps: &test_steps
   steps:
     - checkout
     - restore_cache:
-        key: node-modules-{{ .Branch }}-{{ checksum "package-lock.json" }}
+        key: node-modules-{{ .Branch }}-{{ checksum "package.json" }}
     - run:
         name: Install Local Packages
         command: npm i
