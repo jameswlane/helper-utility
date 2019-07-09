@@ -6,7 +6,7 @@ workflow "Test on push" {
 action "npm ci" {
   uses = "docker://node:alpine"
   runs = "npm"
-  args = "ci"
+  args = "i"
 }
 
 action "lint" {
@@ -37,7 +37,7 @@ action "npm ci (release)" {
   needs = "master branch only"
   uses = "docker://node:alpine"
   runs = "npm"
-  args = "ci"
+  args = "i"
 }
 
 action "semantic-release" {
