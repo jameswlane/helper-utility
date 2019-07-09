@@ -1,46 +1,52 @@
-workflow "Build Pipeline" {
+workflow "Test on push" {
   on = "push"
-  resolves = ["Install Dependencies"]
+  resolves = ["test"]
 }
 
-action "Install Dependencies" {
-  uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
-  args = "install"
+action "npm ci" {
+  uses = "docker://node:alpine"
+  runs = "npm"
+  args = "ci"
 }
 
-action "npmvet" {
-  uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
-  args = "verify:npmvet"
-  needs = ["Install Dependencies"]
-}
-
-action "tslint" {
-  uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
-  args = "tslint"
-  needs = ["npmvet"]
+action "lint" {
+  needs = "npm ci"
+  uses = "docker://node:alpine"
+  runs = "npm"
+  args = "run tslint"
 }
 
 action "test" {
-  uses = "actions/node-matrix@v1.0.0"
-  args = ["8", "10", "12"]
-  secrets = ["GITHUB_TOKEN"]
-  needs = ["tslint"]
+  needs = "lint"
+  uses = "docker://node:alpine"
+  runs = "npm"
+  args = "run test:ci"
 }
 
-action "Coverage" {
-  uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
-  args = "test:coverage:codecov"
-  needs = ["test"]
+workflow "Release" {
+  on = "push"
+  resolves = ["semantic-release"]
 }
 
-action "Build TypeScript" {
-  uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
-  args = "ts:build"
-  needs = ["Coverage"]
+action "master branch only" {
+  uses = "actions/bin/filter@master"
+  args = "branch master"
 }
 
-action "Semantic Release" {
-  uses = "owner/repo/path@ref"
-  args = "semantic-release"
-  needs = ["Build TypeScript"]
+action "npm ci (release)" {
+  needs = "master branch only"
+  uses = "docker://node:alpine"
+  runs = "npm"
+  args = "ci"
+}
+
+action "semantic-release" {
+  needs = [
+    "master branch only",
+    "npm ci (release)",
+  ]
+  uses = "docker://timbru31/node-alpine-git"
+  runs = "npm"
+  args = "run semantic-release"
+  secrets = ["GITHUB_TOKEN", "NPM_TOKEN"]
 }
