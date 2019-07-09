@@ -31,7 +31,6 @@
 
 Data helper utility
 
-
 ## Installation
 
 This module is distributed via [npm][npm] which is bundled with [node][node] and
