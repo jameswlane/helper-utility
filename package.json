@@ -54,7 +54,7 @@
     "all-contributors-cli": "6.7.0",
     "awesome-typescript-loader": "5.2.1",
     "codecov": "3.5.0",
-    "commitizen": "3.1.1",
+    "commitizen": "4.0.3",
     "coveralls": "3.0.4",
     "cz-conventional-changelog": "2.1.0",
     "jest": "24.8.0",
