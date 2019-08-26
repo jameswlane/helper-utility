@@ -58,7 +58,7 @@
     "coveralls": "3.0.6",
     "cz-conventional-changelog": "3.0.2",
     "jest": "24.8.0",
-    "lint-staged": "9.2.1",
+    "lint-staged": "9.2.4",
     "npmvet": "0.1.5",
     "opt-cli": "1.6.0",
     "rimraf": "2.6.3",
