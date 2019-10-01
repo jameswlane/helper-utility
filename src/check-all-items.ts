@@ -1,6 +1,6 @@
 export function checkAllItems(itemsGroup: object[], selected: boolean) {
   return itemsGroup.map((group: any) => {
-    const newItems = group.items.map((item: any) => Object.assign({}, item, { selected }));
+    const newItems = getNewItems(group, selected);
     const numberOfSelectedItems = newItems.filter((item: any) => item.selected === true).length;
     const numberOfItems = newItems.length;
 
@@ -14,3 +14,8 @@ export function checkAllItems(itemsGroup: object[], selected: boolean) {
     );
   });
 }
+
+function getNewItems(group: any, selected: boolean) {
+    return group.items.map((item: any) => Object.assign({}, item, { selected }));
+}
+
